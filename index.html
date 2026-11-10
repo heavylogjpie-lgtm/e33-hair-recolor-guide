@@ -300,12 +300,14 @@ couldn't find:</p>
 <strong>that</strong> material.</p>
 <ol>
 <li>Find the material in FModel (hair materials are under <code>Sandfall/Content/Characters/Hair/</code>)
-   and note its path, e.g. <code>/Game/Characters/Hair/NPCs/Simon/MI_Hair_Simon</code>. Game paths use
-   <code>/Game/</code> where FModel shows <code>Sandfall/Content/</code>.</li>
+   and note its <strong>full</strong> path, every folder included, e.g.
+   <code>/Game/Characters/Hair/NPCs/Simon/MI_Hair_Simon</code>. Game paths use <code>/Game/</code> where FModel
+   shows <code>Sandfall/Content/</code>. A character's materials aren't all in the same folder, so copy
+   the whole path rather than changing only the name at the end.</li>
 <li>Open your mesh or face blueprint's <code>.uasset</code> in UAssetGUI and click <strong>Name Map</strong>. Edit the
    two entries naming the current hair material (double-click to edit):
    - the <strong>path</strong>, e.g. <code>/Game/Characters/Hair/Heroes/Lune/MI_Hairvar_Lune_Rebellious</code>,
-     becomes the new material's path;
+     becomes the new material's full path;
    - the <strong>short name</strong>, e.g. <code>MI_Hairvar_Lune_Rebellious</code>, becomes the new short name.</li>
 </ol>
 <p>Leave accessory entries (like the rose) alone.
@@ -604,7 +606,7 @@ colors.</p>
 <tr>
 <td>Hair looks flat grey, or not like any color you set</td>
 <td>A renamed entry doesn't match the material's path, or the material isn't in the pack</td>
-<td>Compare the mesh's Name Map entries with the material's PackageName character by character, and check the material sits in your mod folder at that path</td>
+<td>Compare the mesh's Name Map entries with the material's full path (or your copy's PackageName) character by character, folders included, and check your own material sits in your mod folder at that path</td>
 </tr>
 <tr>
 <td>UAssetGUI: "Failed to parse 1 exports!" on a face blueprint</td>
@@ -623,8 +625,8 @@ colors.</p>
 </tr>
 <tr>
 <td>Nothing changes in game</td>
-<td>Missing <code>_P</code> in the name, or the Input Path was the <code>Sandfall</code> folder instead of its parent</td>
-<td>Fix and repack</td>
+<td>Missing <code>_P</code> at the end of the container's name</td>
+<td>Rename the output to end in <code>_P.utoc</code> and repack</td>
 </tr>
 </tbody>
 </table>
